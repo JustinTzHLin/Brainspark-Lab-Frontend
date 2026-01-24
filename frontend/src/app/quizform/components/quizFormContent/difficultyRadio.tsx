@@ -34,7 +34,7 @@ const DifficultyRadio: React.FC<DifficultyRadioProps> = ({
           borderBottomLeftRadius={0}
         >
           <RadioGroup
-            onValueChange={(e) => setDifficulty(e.value)}
+            onValueChange={(e) => setDifficulty(e.value ?? "")}
             value={difficulty}
             variant="outline"
           >

@@ -30,12 +30,12 @@ const FormContent = () => {
     (state) => state.login.userAccess
   );
   const dispatch = useAppDispatch();
-  const searchParamas = useSearchParams();
+  const searchParams = useSearchParams();
 
   const [signupConfirmIsOpen, setSignupConfirmIsOpen] = useState(false);
 
   useEffect(() => {
-    const token = searchParamas.get("token");
+    const token = searchParams.get("token");
     dispatch(replaceIsLoadingModalOpen(true));
     initialStatusConfirm(
       token,
@@ -48,7 +48,7 @@ const FormContent = () => {
       replaceIsLoadingModalOpen,
       "/quizform"
     );
-  }, [BACKEND_URL, dispatch, router, searchParamas]);
+  }, [BACKEND_URL, dispatch, router, searchParams]);
 
   // Handle click continue button
   const handleContinue = async (e: { preventDefault: () => void }) => {

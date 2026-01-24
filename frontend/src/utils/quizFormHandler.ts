@@ -20,15 +20,15 @@ export const verifyLoggedIn = async (
       { withCredentials: true }
     );
     if (loggedIn?.data?.result) {
-      router.push(redirectURL);
+      if (window.location.pathname !== redirectURL) router.push(redirectURL);
       setTimeout(() => dispatch(replaceIsLoadingModalOpen(false)), 1000);
       return loggedIn.data.userInformation;
     }
-    router.push("/");
+    if (window.location.pathname !== "/") router.push("/");
     setTimeout(() => dispatch(replaceIsLoadingModalOpen(false)), 1000);
   } catch (err: any) {
     console.log(err);
-    router.push("/");
+    if (window.location.pathname !== "/") router.push("/");
     setTimeout(() => dispatch(replaceIsLoadingModalOpen(false)), 1000);
   }
 };

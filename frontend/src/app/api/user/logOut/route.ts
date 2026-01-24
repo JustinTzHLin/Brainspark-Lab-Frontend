@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 export async function GET(req: Request) {
   try {
-    cookies().delete("brainspark-lab_user");
+    (await cookies()).delete("brainspark-lab_user");
     return NextResponse.json({ result: true, status: 200 });
   } catch (err) {
     // handle error

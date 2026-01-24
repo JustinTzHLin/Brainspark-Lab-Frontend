@@ -27,7 +27,7 @@ const Navbar = () => {
         >
           <Image src="/trivioasis.jpg" alt="Logo" h={5} />
           <Text fontSize="xl" color="teal.500">
-            Trvioasis
+            Trivioasis
           </Text>
         </Flex>
 

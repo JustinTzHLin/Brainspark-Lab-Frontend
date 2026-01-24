@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppSelector } from "@/lib/hooks";
 import { Flex, Box } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
@@ -34,13 +34,15 @@ const Quiz = () => {
   const [buttonBorderColor, setButtonBorderColor] = useState(
     Array(4).fill("0px 0px 0px 0px #18181b inset")
   );
-  const [options, setOptions] = useState(
-    shuffleArray(
-      quiz.correct_answer
-        ? [quiz.correct_answer].concat(quiz.incorrect_answers)
-        : []
-    )
-  );
+  const [options, setOptions] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (quiz.correct_answer) {
+      setOptions(
+        shuffleArray([quiz.correct_answer].concat(quiz.incorrect_answers))
+      );
+    }
+  }, [quiz.correct_answer, quiz.incorrect_answers]);
   const [userAnswers, setUserAnswers] = useState<string[]>(
     Array(questionNumber).fill("")
   );

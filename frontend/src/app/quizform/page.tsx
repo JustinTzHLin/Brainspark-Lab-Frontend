@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import { replaceQuiz } from "@/lib/features/quizSlice";
 import { Flex, Box, Heading, IconButton } from "@chakra-ui/react";
-import { LuUserCircle } from "react-icons/lu";
+import { LuCircleUser } from "react-icons/lu";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Navbar from "@/components/navbar";
@@ -79,7 +79,7 @@ const QuizForm = () => {
               onClick={() => router.push("/profile")}
               _active={{ transform: "scale(0.9)" }}
             >
-              <LuUserCircle />
+              <LuCircleUser />
             </IconButton>
           </Flex>
 

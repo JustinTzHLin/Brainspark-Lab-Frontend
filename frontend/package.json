@@ -6,35 +6,39 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn format && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json}\" \"*.{js,json,mjs}\""
   },
   "dependencies": {
-    "@chakra-ui/react": "^3.1.0",
-    "@emotion/react": "^11.13.3",
-    "@google/generative-ai": "^0.17.2",
-    "@reduxjs/toolkit": "^2.2.7",
-    "@types/validator": "^13.12.1",
-    "axios": "^1.7.7",
+    "@chakra-ui/react": "^3.31.0",
+    "@emotion/react": "^11.14.0",
+    "@google/generative-ai": "^0.24.1",
+    "@reduxjs/toolkit": "^2.11.2",
+    "@types/validator": "^13.15.10",
+    "axios": "^1.13.2",
     "he": "^1.2.0",
-    "next": "14.2.7",
-    "next-themes": "^0.3.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.3.0",
-    "react-redux": "^9.1.2",
-    "recharts": "^2.13.3",
-    "validator": "^13.12.0"
+    "next": "^16.1.4",
+    "next-themes": "^0.4.6",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-icons": "^5.5.0",
+    "react-redux": "^9.2.0",
+    "recharts": "^3.7.0",
+    "validator": "^13.15.26"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^3.1.0",
+    "@chakra-ui/cli": "^3.31.0",
     "@types/he": "^1.2.3",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.7",
-    "typescript": "^5"
+    "@types/node": "^25.0.10",
+    "@types/react": "^19.2.9",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "^16.1.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3"
   }
 }
