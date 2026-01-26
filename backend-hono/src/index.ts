@@ -1,4 +1,6 @@
 import { Hono } from 'hono'
+import quizzes from './quizzes'
+import users from './users'
 
 const app = new Hono()
 
@@ -10,5 +12,8 @@ const welcomeStrings = [
 app.get('/', (c) => {
   return c.text(welcomeStrings.join('\n\n'))
 })
+
+app.route('/quizzes', quizzes)
+app.route('/users', users)
 
 export default app
