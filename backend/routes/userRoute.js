@@ -8,23 +8,23 @@ router.post(
   "/signUp",
   userController.createUser,
   tokenController.issueToken,
-  (req, res) => res.status(200).json(res.locals.authenticatedUser)
+  (_req, res) => res.status(200).json(res.locals.authenticatedUser)
 );
 
 // sent registration email
 router.post(
   "/confirmRegistration",
   userController.confirmRegistration,
-  (req, res) => res.status(200).send("Email sent successfully")
+  (_req, res) => res.status(200).send("Email sent successfully")
 );
 
 // login or signup with email
-router.post("/emailConfirm", userController.confirmEmail, (req, res) =>
+router.post("/emailConfirm", userController.confirmEmail, (_req, res) =>
   res.status(200).json({ result: res.locals.emailResult })
 );
 
 // confirm token from registration email
-router.post("/tokenConfirm", tokenController.confirmToken, (req, res) =>
+router.post("/tokenConfirm", tokenController.confirmToken, (_req, res) =>
   res.status(200).json({
     result: res.locals.result,
     useremail: res.locals.useremail,
@@ -36,11 +36,11 @@ router.post(
   "/signIn",
   userController.verifyUser,
   tokenController.issueToken,
-  (req, res) => res.status(200).json(res.locals.authenticatedUser)
+  (_req, res) => res.status(200).json(res.locals.authenticatedUser)
 );
 
 // check if user is logged in
-router.post("/verifyLoggedIn", tokenController.verifyToken, (req, res) =>
+router.post("/verifyLoggedIn", tokenController.verifyToken, (_req, res) =>
   res
     .status(200)
     .json({ result: true, userInformation: res.locals.userInformation })
@@ -53,7 +53,7 @@ router.post(
   userController.verifyUser,
   userController.changePassword,
   tokenController.issueToken,
-  (req, res) => res.status(200).json(res.locals.authenticatedUser)
+  (_req, res) => res.status(200).json(res.locals.authenticatedUser)
 );
 
 export default router;

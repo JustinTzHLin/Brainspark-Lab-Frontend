@@ -19,13 +19,13 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => res.send("Hello World"));
+app.get("/", (_req, res) => res.send("Hello World"));
 
 // server side routing
 app.use("/user", userRoute);
 app.use("/quiz", quizRoute);
 
-app.use("*", (req, res, next) =>
+app.use((_req, _res, next) =>
   next({
     log: `server root: ERROR: 'Wrong route.'`,
     status: 404,
@@ -36,7 +36,7 @@ app.use("*", (req, res, next) =>
   })
 );
 
-app.use((err, req, res, next) => {
+app.use((err, _req, res, _next) => {
   const defaultObj = {
     log: "Express error handler caught unknown middleware error",
     status: 500,
@@ -49,6 +49,6 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(
-    `🚀 Server launching on port ${PORT} under ${process.env.NODE_ENV || 'development'} mode`
+    `🚀 Server launching on port ${PORT} under ${process.env.NODE_ENV || "development"} mode`
   );
 });
