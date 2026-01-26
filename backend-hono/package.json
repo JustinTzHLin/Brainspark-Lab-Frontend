@@ -2,7 +2,7 @@
   "name": "hono",
   "type": "module",
   "scripts": {
-    "dev": "VERCEL_EXPERIMENTAL_BACKENDS=1 vc dev --listen 8000"
+    "dev": "vc dev --listen 8000"
   },
   "dependencies": {
     "hono": "^4.11.5"

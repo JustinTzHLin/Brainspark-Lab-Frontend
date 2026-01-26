@@ -1,6 +1,6 @@
 import { Hono } from 'hono'
-import quizzes from './quizzes'
-import users from './users'
+import quizzes from './quizzes.js'
+import users from './users.js'
 
 const app = new Hono()
 
